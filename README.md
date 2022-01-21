@@ -11,3 +11,4 @@ Sandbox report where I'll be testing some techno
 - [ ] Nest Js
 - [ ] MongoDB
 - [ ] Flutter
+- [ ] Design patterns
