@@ -1,0 +1,25 @@
+{
+  "name": "design-patterns",
+  "version": "1.0.0",
+  "description": "Sandbox report where I'll be testing some techno",
+  "main": "index.ts",
+  "scripts": {
+    "launch": "ts-node index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Flowwl/sandbox.git"
+  },
+  "author": "Flowl",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Flowwl/sandbox/issues"
+  },
+  "homepage": "https://github.com/Flowwl/sandbox#readme",
+  "dependencies": {
+    "ts-node": "^10.4.0"
+  },
+  "devDependencies": {
+    "typescript": "^4.5.5"
+  }
+}
