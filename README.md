@@ -12,3 +12,4 @@ Sandbox report where I'll be testing some techno
 - [ ] MongoDB
 - [ ] Flutter
 - [ ] Design patterns
+- [ ] Rust
