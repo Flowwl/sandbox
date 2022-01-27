@@ -8,6 +8,6 @@ export class Singleton {
     }
 
     public showMessage(){
-        console.log("Hello from singleton");
+        return "Hello from singleton";
     }
 }
