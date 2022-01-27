@@ -3,6 +3,7 @@ import { Singleton } from "./creational/singleton/Singleton";
 import { LOG_COLORS } from "./colors";
 import { MealBuilder } from "./creational/builder/MealBuilder";
 import { ShapeCache } from "./creational/prototype/ShapeCache";
+import { AudioPlayer } from "./structural/adapter/mediaPlayer/AudioPlayer";
 
 const title = (...args) => console.log(`${LOG_COLORS.fg.blue}%s\x1b[0m`, ...args)
 const subtitle = (...args) => console.log(`\t${LOG_COLORS.fg.cyan}%s\x1b[0m`, ...args)
@@ -51,6 +52,14 @@ const singleton = Singleton.getInstance()
 content(singleton.showMessage())
 
 subtitle("Structural Patterns")
+
+section("# Adapter")
+const audioPlayer = new AudioPlayer();
+
+content(audioPlayer.play("mp3", "beyond the horizon.mp3"));
+content(audioPlayer.play("mp4", "alone.mp4"));
+content(audioPlayer.play("vlc", "far far away.vlc"));
+content(audioPlayer.play("avi", "mind me.avi"));
 
 
 
