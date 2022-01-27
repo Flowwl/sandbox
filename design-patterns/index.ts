@@ -1,6 +1,7 @@
 import { Factory } from "./creational/factory/Factory";
 import { Singleton } from "./creational/singleton/Singleton";
 import { LOG_COLORS } from "./colors";
+import { MealBuilder } from "./creational/builder/MealBuilder";
 
 const title = (...args) => console.log(`${LOG_COLORS.fg.blue}%s\x1b[0m`, ...args)
 const subtitle = (...args) => console.log(`\t${LOG_COLORS.fg.cyan}%s\x1b[0m`, ...args)
@@ -9,7 +10,25 @@ const content = (...args) => console.log(`\t\t\t${LOG_COLORS.fg.white}%s\x1b[0m`
 
 title("Running design-patterns")
 
-subtitle("Architectural Patterns")
+subtitle("Behavioral Patterns")
+
+subtitle("Creational Patterns")
+
+section("# Builder")
+const mealBuilder = new MealBuilder()
+
+content("Veg Meal")
+const vegMeal = mealBuilder.prepareVegMeal()
+vegMeal.showItems().forEach((it) => content(it))
+content(`Total Cost: ${vegMeal.getCost()}`)
+
+content("")
+
+content("Non-Veg Meal")
+const nonVegMeal = mealBuilder.prepareNonVegMeal()
+nonVegMeal.showItems().forEach((it) => content(it))
+content(`Total Cost: ${nonVegMeal.getCost()}`)
+
 section("# Factory")
 const factory = new Factory()
 content(factory.getShape("circle").draw())
@@ -20,6 +39,8 @@ section("# Singleton")
 const singleton = Singleton.getInstance()
 content(singleton.showMessage())
 
+subtitle("Structural Patterns")
 
-subtitle("Behavioral Patterns")
+
+
 
