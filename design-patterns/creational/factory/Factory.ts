@@ -1,7 +1,7 @@
-import { Shape } from "./Shape";
-import { Circle } from "./Circle";
-import { Rectangle } from "./Rectangle";
-import { Square } from "./Square";
+import { Shape } from "./shapes/Shape";
+import { Circle } from "./shapes/Circle";
+import { Rectangle } from "./shapes/Rectangle";
+import { Square } from "./shapes/Square";
 
 export class Factory {
     getShape(shapeName: "circle" | "rectangle" | "square") {
