@@ -4,6 +4,9 @@ import { LOG_COLORS } from "./colors";
 import { MealBuilder } from "./creational/builder/MealBuilder";
 import { ShapeCache } from "./creational/prototype/ShapeCache";
 import { AudioPlayer } from "./structural/adapter/mediaPlayer/AudioPlayer";
+import { Circle } from "./structural/bridge/shapes/Circle";
+import { RedCircle } from "./structural/bridge/drawApi/RedCircle";
+import { GreenCircle } from "./structural/bridge/drawApi/GreenCircle";
 
 const title = (...args) => console.log(`${LOG_COLORS.fg.blue}%s\x1b[0m`, ...args)
 const subtitle = (...args) => console.log(`\t${LOG_COLORS.fg.cyan}%s\x1b[0m`, ...args)
@@ -61,6 +64,12 @@ content(audioPlayer.play("mp4", "alone.mp4"));
 content(audioPlayer.play("vlc", "far far away.vlc"));
 content(audioPlayer.play("avi", "mind me.avi"));
 
+section("# Adapter")
+const redCircle = new Circle(100, 100, 10, new RedCircle())
+const greenCircle = new Circle(100, 100, 10, new GreenCircle())
+
+content(redCircle.draw())
+content(greenCircle.draw())
 
 
 
