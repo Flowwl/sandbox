@@ -16,9 +16,9 @@ export class MediaAdapter implements MediaPlayer {
 
     public play(audioType: string, fileName: string) {
         if (audioType === "vlc") {
-            this.advancedMusicPlayer.playVlc(fileName);
+            return this.advancedMusicPlayer.playVlc(fileName);
         } else if (audioType === "mp4") {
-            this.advancedMusicPlayer.playMp4(fileName);
+            return this.advancedMusicPlayer.playMp4(fileName);
         }
     }
 }
