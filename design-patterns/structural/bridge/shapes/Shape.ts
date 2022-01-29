@@ -6,5 +6,5 @@ export abstract class Shape {
     protected constructor(drawAPI: DrawAPI) {
         this.drawAPI = drawAPI
     }
-    public abstract draw(): void;
+    public abstract draw();
 }
