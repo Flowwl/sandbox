@@ -5,6 +5,7 @@ import { MealBuilder } from "./creational/builder/MealBuilder";
 import { ShapeCache } from "./creational/prototype/ShapeCache";
 import { AudioPlayer } from "./structural/adapter/mediaPlayer/AudioPlayer";
 import { Circle } from "./structural/bridge/shapes/Circle";
+import { Circle as DCircle} from "./structural/decorator/shapes/Circle";
 import { RedCircle } from "./structural/bridge/drawApi/RedCircle";
 import { GreenCircle } from "./structural/bridge/drawApi/GreenCircle";
 import { Person } from "./structural/filter/Person";
@@ -14,6 +15,8 @@ import { CriteriaSingle } from "./structural/filter/criterias/CriteriaSingle";
 import { CriteriaAnd } from "./structural/filter/criterias/CriteriaAnd";
 import { CriteriaOr } from "./structural/filter/criterias/CriteriaOr";
 import { Employee } from "./structural/composite/Employee";
+import { RedShapeDecorator } from "./structural/decorator/decorators/RedShapeDecorator";
+import { Rectangle as DRectangle } from "./structural/decorator/shapes/Rectangle";
 
 const title = (...args) => console.log(`${LOG_COLORS.fg.blue}%s\x1b[0m`, ...args)
 const subtitle = (...args) => console.log(`\t${LOG_COLORS.fg.cyan}%s\x1b[0m`, ...args)
@@ -107,8 +110,22 @@ for (const headEmployee of CEO.getSubordinates()) {
     }
 }
 
-section("# Filter")
+section("# Decorator")
+const dCircle = new DCircle();
+const redDCircle = new RedShapeDecorator(new DCircle());
+const redRectangle = new RedShapeDecorator(new DRectangle());
 
+content("Circle with normal border");
+content(dCircle.draw());
+
+content("Circle of red border");
+content(redDCircle.draw());
+
+content("Rectangle of red border");
+content(redRectangle.draw());
+
+
+section("# Filter")
 const persons: Person[] = [
     new Person("Robert","Male", "Single"),
     new Person("John", "Male", "Married"),
