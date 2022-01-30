@@ -26,7 +26,8 @@ export const LOG_COLORS = {
         blue: "\x1b[34m",
         magenta: "\x1b[35m",
         cyan: "\x1b[36m",
-        white: "\x1b[37m",
+        grey: "\x1b[37m",
+        white: "\x1b[0m",
         crimson: "\x1b[38m"
     },
     // Background colors

@@ -7,11 +7,17 @@ import { AudioPlayer } from "./structural/adapter/mediaPlayer/AudioPlayer";
 import { Circle } from "./structural/bridge/shapes/Circle";
 import { RedCircle } from "./structural/bridge/drawApi/RedCircle";
 import { GreenCircle } from "./structural/bridge/drawApi/GreenCircle";
+import { Person } from "./structural/filter/Person";
+import { CriteriaMale } from "./structural/filter/criterias/CriteriaMale";
+import { CriteriaFemale } from "./structural/filter/criterias/CriteriaFemale";
+import { CriteriaSingle } from "./structural/filter/criterias/CriteriaSingle";
+import { CriteriaAnd } from "./structural/filter/criterias/CriteriaAnd";
+import { CriteriaOr } from "./structural/filter/criterias/CriteriaOr";
 
 const title = (...args) => console.log(`${LOG_COLORS.fg.blue}%s\x1b[0m`, ...args)
 const subtitle = (...args) => console.log(`\t${LOG_COLORS.fg.cyan}%s\x1b[0m`, ...args)
 const section = (...args) => console.log(`\t\t${LOG_COLORS.fg.green}%s\x1b[0m`, ...args)
-const content = (...args) => console.log(`\t\t\t${LOG_COLORS.fg.white}%s\x1b[0m`, ...args)
+const content = (...args) => console.log(`\t\t\t${LOG_COLORS.fg.grey}%s\x1b[0m`, ...args)
 
 title("Running design-patterns")
 
@@ -64,12 +70,44 @@ content(audioPlayer.play("mp4", "alone.mp4"));
 content(audioPlayer.play("vlc", "far far away.vlc"));
 content(audioPlayer.play("avi", "mind me.avi"));
 
-section("# Adapter")
+section("# Bridge")
 const redCircle = new Circle(100, 100, 10, new RedCircle())
 const greenCircle = new Circle(100, 100, 10, new GreenCircle())
 
 content(redCircle.draw())
 content(greenCircle.draw())
+
+section("# Filter")
+
+const persons: Person[] = [
+    new Person("Robert","Male", "Single"),
+    new Person("John", "Male", "Married"),
+    new Person("Laura", "Female", "Married"),
+    new Person("Diana", "Female", "Single"),
+    new Person("Mike", "Male", "Single"),
+    new Person("Bobby", "Male", "Single")
+];
+
+const male = new CriteriaMale();
+const female = new CriteriaFemale();
+const single = new CriteriaSingle();
+const singleMale = new CriteriaAnd(single, male);
+const singleOrFemale = new CriteriaOr(single, female);
+
+function printPersons(person: Person[]) {
+    content(person.map((person) => person.toString()).join(" | "))
+}
+content(`${LOG_COLORS.fg.white}Males:`);
+printPersons(male.meetCriteria(persons));
+
+content(`${LOG_COLORS.fg.white}Females:`);
+printPersons(female.meetCriteria(persons));
+
+content(`${LOG_COLORS.fg.white}Single Males:`);
+printPersons(singleMale.meetCriteria(persons));
+
+content(`${LOG_COLORS.fg.white}Single Or Females:`);
+printPersons(singleOrFemale.meetCriteria(persons));
 
 
 

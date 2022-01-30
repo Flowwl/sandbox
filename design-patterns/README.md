@@ -105,3 +105,4 @@
    > ```
 
 - ### Filter
+  - Permet de filter des données

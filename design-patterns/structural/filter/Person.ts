@@ -21,3 +21,7 @@ export class Person {
         return this.maritalStatus;
     }
 }
+
+Person.prototype.toString = function toString() {
+    return "" + this.name + ", " + this.gender + ", " + this.maritalStatus
+}
