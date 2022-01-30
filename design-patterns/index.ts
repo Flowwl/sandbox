@@ -17,6 +17,7 @@ import { CriteriaOr } from "./structural/filter/criterias/CriteriaOr";
 import { Employee } from "./structural/composite/Employee";
 import { RedShapeDecorator } from "./structural/decorator/decorators/RedShapeDecorator";
 import { Rectangle as DRectangle } from "./structural/decorator/shapes/Rectangle";
+import { ShapeMaker } from "./structural/facade/ShapeMaker";
 
 const title = (...args) => console.log(`${LOG_COLORS.fg.blue}%s\x1b[0m`, ...args)
 const subtitle = (...args) => console.log(`\t${LOG_COLORS.fg.cyan}%s\x1b[0m`, ...args)
@@ -123,6 +124,14 @@ content(redDCircle.draw());
 
 content("Rectangle of red border");
 content(redRectangle.draw());
+
+
+section("# Facade")
+const shapeMaker = new ShapeMaker();
+
+content(shapeMaker.drawCircle());
+content(shapeMaker.drawRectangle());
+content(shapeMaker.drawSquare());
 
 
 section("# Filter")
