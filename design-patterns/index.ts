@@ -13,6 +13,7 @@ import { CriteriaFemale } from "./structural/filter/criterias/CriteriaFemale";
 import { CriteriaSingle } from "./structural/filter/criterias/CriteriaSingle";
 import { CriteriaAnd } from "./structural/filter/criterias/CriteriaAnd";
 import { CriteriaOr } from "./structural/filter/criterias/CriteriaOr";
+import { Employee } from "./structural/composite/Employee";
 
 const title = (...args) => console.log(`${LOG_COLORS.fg.blue}%s\x1b[0m`, ...args)
 const subtitle = (...args) => console.log(`\t${LOG_COLORS.fg.cyan}%s\x1b[0m`, ...args)
@@ -76,6 +77,35 @@ const greenCircle = new Circle(100, 100, 10, new GreenCircle())
 
 content(redCircle.draw())
 content(greenCircle.draw())
+
+section("# Composite")
+
+const CEO = new Employee("John","CEO", 30000);
+const headSales = new Employee("Robert","Head Sales", 20000);
+const headMarketing = new Employee("Michel","Head Marketing", 20000);
+const clerk1 = new Employee("Laura","Marketing", 10000);
+const clerk2 = new Employee("Bob","Marketing", 10000);
+const salesExecutive1 = new Employee("Richard","Sales", 10000);
+const salesExecutive2 = new Employee("Rob","Sales", 10000);
+
+CEO.add(headSales);
+CEO.add(headMarketing);
+
+headSales.add(salesExecutive1);
+headSales.add(salesExecutive2);
+
+headMarketing.add(clerk1);
+headMarketing.add(clerk2);
+
+content(CEO);
+
+for (const headEmployee of CEO.getSubordinates()) {
+    content(headEmployee);
+
+    for (const employee of headEmployee.getSubordinates()) {
+        content(employee);
+    }
+}
 
 section("# Filter")
 
