@@ -18,6 +18,7 @@ import { Employee } from "./structural/composite/Employee";
 import { RedShapeDecorator } from "./structural/decorator/decorators/RedShapeDecorator";
 import { Rectangle as DRectangle } from "./structural/decorator/shapes/Rectangle";
 import { ShapeMaker } from "./structural/facade/ShapeMaker";
+import { ShapeFactory } from "./structural/flyweight/ShapeFactory";
 
 const title = (...args) => console.log(`${LOG_COLORS.fg.blue}%s\x1b[0m`, ...args)
 const subtitle = (...args) => console.log(`\t${LOG_COLORS.fg.cyan}%s\x1b[0m`, ...args)
@@ -166,4 +167,10 @@ content(`${LOG_COLORS.fg.white}Single Or Females:`);
 printPersons(singleOrFemale.meetCriteria(persons));
 
 
+section("# Flyweight")
+const fCircle = ShapeFactory.getCircle("orange");
+fCircle.setX(50);
+fCircle.setY(100);
+fCircle.setRadius(100);
+content(fCircle.draw());
 
