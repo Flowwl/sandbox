@@ -1,6 +1,5 @@
 import { Factory } from "./creational/factory/Factory";
 import { Singleton } from "./creational/singleton/Singleton";
-import { LOG_COLORS } from "./colors";
 import { MealBuilder } from "./creational/builder/MealBuilder";
 import { ShapeCache } from "./creational/prototype/ShapeCache";
 import { AudioPlayer } from "./structural/adapter/mediaPlayer/AudioPlayer";
@@ -19,11 +18,8 @@ import { RedShapeDecorator } from "./structural/decorator/decorators/RedShapeDec
 import { Rectangle as DRectangle } from "./structural/decorator/shapes/Rectangle";
 import { ShapeMaker } from "./structural/facade/ShapeMaker";
 import { ShapeFactory } from "./structural/flyweight/ShapeFactory";
-
-const title = (...args) => console.log(`${LOG_COLORS.fg.blue}%s\x1b[0m`, ...args)
-const subtitle = (...args) => console.log(`\t${LOG_COLORS.fg.cyan}%s\x1b[0m`, ...args)
-const section = (...args) => console.log(`\t\t${LOG_COLORS.fg.green}%s\x1b[0m`, ...args)
-const content = (...args) => console.log(`\t\t\t${LOG_COLORS.fg.grey}%s\x1b[0m`, ...args)
+import { ProxyImage } from "./structural/proxy/ProxyImage";
+import { content, LOG_COLORS, section, subtitle, title, whiteContent } from "./logs";
 
 title("Running design-patterns")
 
@@ -154,16 +150,16 @@ const singleOrFemale = new CriteriaOr(single, female);
 function printPersons(person: Person[]) {
     content(person.map((person) => person.toString()).join(" | "))
 }
-content(`${LOG_COLORS.fg.white}Males:`);
+whiteContent(`Males:`);
 printPersons(male.meetCriteria(persons));
 
-content(`${LOG_COLORS.fg.white}Females:`);
+whiteContent(`Females:`);
 printPersons(female.meetCriteria(persons));
 
-content(`${LOG_COLORS.fg.white}Single Males:`);
+whiteContent(`Single Males:`);
 printPersons(singleMale.meetCriteria(persons));
 
-content(`${LOG_COLORS.fg.white}Single Or Females:`);
+whiteContent(`Single Or Females:`);
 printPersons(singleOrFemale.meetCriteria(persons));
 
 
@@ -173,4 +169,13 @@ fCircle.setX(50);
 fCircle.setY(100);
 fCircle.setRadius(100);
 content(fCircle.draw());
+
+section("# Proxy")
+const image = new ProxyImage("test_10mb.jpg");
+
+//image will be loaded from disk
+content(image.display());
+
+//image will not be loaded from disk
+content(image.display());
 

@@ -43,3 +43,8 @@ export const LOG_COLORS = {
         crimson: "\x1b[48m"
     }
 };
+export const title = (...args) => console.log(`${LOG_COLORS.fg.blue}%s\x1b[0m`, ...args)
+export const subtitle = (...args) => console.log(`\t${LOG_COLORS.fg.cyan}%s\x1b[0m`, ...args)
+export const section = (...args) => console.log(`\t\t${LOG_COLORS.fg.green}%s\x1b[0m`, ...args)
+export const content = (...args) => console.log(`\t\t\t${LOG_COLORS.fg.grey}%s\x1b[0m`, ...args)
+export const whiteContent = (...args) => console.log(`\t\t\t${LOG_COLORS.fg.white}%s\x1b[0m`, ...args)
