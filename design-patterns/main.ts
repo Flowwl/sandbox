@@ -4,7 +4,7 @@ import { MealBuilder } from "./creational/builder/MealBuilder";
 import { ShapeCache } from "./creational/prototype/ShapeCache";
 import { AudioPlayer } from "./structural/adapter/mediaPlayer/AudioPlayer";
 import { Circle } from "./structural/bridge/shapes/Circle";
-import { Circle as DCircle} from "./structural/decorator/shapes/Circle";
+import { Circle as DCircle } from "./structural/decorator/shapes/Circle";
 import { RedCircle } from "./structural/bridge/drawApi/RedCircle";
 import { GreenCircle } from "./structural/bridge/drawApi/GreenCircle";
 import { Person } from "./structural/filter/Person";
@@ -19,11 +19,33 @@ import { Rectangle as DRectangle } from "./structural/decorator/shapes/Rectangle
 import { ShapeMaker } from "./structural/facade/ShapeMaker";
 import { ShapeFactory } from "./structural/flyweight/ShapeFactory";
 import { ProxyImage } from "./structural/proxy/ProxyImage";
-import { content, LOG_COLORS, section, subtitle, title, whiteContent } from "./logs";
+import { content, section, subtitle, title, whiteContent } from "./logs";
+import { AbstractLogger } from "./behavioral/chainOfResponsibility/AbstractLogger";
+import { ErrorLogger } from "./behavioral/chainOfResponsibility/ErrorLogger";
+import { FileLogger } from "./behavioral/chainOfResponsibility/FileLogger";
+import { ConsoleLogger } from "./behavioral/chainOfResponsibility/ConsoleLogger";
 
 title("Running design-patterns")
 
 subtitle("Behavioral Patterns")
+
+section("# Chain of responsibility")
+function getChainOfLoggers(): AbstractLogger{
+
+    const errorLogger = new ErrorLogger();
+    const fileLogger = new FileLogger();
+    const consoleLogger = new ConsoleLogger();
+
+    errorLogger.setNextLogger(fileLogger);
+    fileLogger.setNextLogger(consoleLogger);
+
+    return errorLogger;
+}
+const loggerChain = getChainOfLoggers();
+
+loggerChain.logMessage(AbstractLogger.INFO, "This is an information.");
+loggerChain.logMessage(AbstractLogger.DEBUG, "This is an debug level information.");
+loggerChain.logMessage(AbstractLogger.ERROR, "This is an error information.");
 
 subtitle("Creational Patterns")
 
