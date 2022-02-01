@@ -2,6 +2,9 @@
 
 ## Behavioral
 
+- ### Chain of responsibility
+  - Permet de call une suite de fonction ou de la même class
+  > Exemple : log ERROR -> log DEBUG -> log NORMAL
 ## Creational
 
 - ### Builder
@@ -81,6 +84,7 @@
    >   }
    > }
    > ```
+
 - ### Bridge
   - Permet de lier 2 interfaces ensemble
    > Exemple: <br/>
@@ -104,5 +108,27 @@
    > }
    > ```
 
+
+- ### Composite
+  - Permet d'avoir des références vers une liste du même objet afin d'avoir un structure hierarchique
+  > Exemple :
+  > ```Typescript
+  > class Employee {
+  >    subordinates: Employee[]
+  > }
+  > ```
+- ### Decorator
+  - Permet de rajouter des propriété à une classe déjà définie
+  > Exemple: Rajouter une `borderColor` à une classe `Shape`
+
+- ### Facade
+  - Permet de céer une classe dont la responsabilité est de gérer toutes les actions d'un sous classe
+  > Exemple: La classe `ShapeMaker` a la responsabilité de pouvoir `draw` toutes les `Shape`
+
 - ### Filter
   - Permet de filter des données
+
+- ### Flyweight
+  - Permet de créer une hashmap qui conserve en cache des données afin de limiter la consommation de ressources 
+- ### Proxy
+  - Permet de mettre un objet en cache afin de le réafficher plus tard sans le load
