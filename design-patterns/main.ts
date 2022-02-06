@@ -24,6 +24,10 @@ import { AbstractLogger } from "./behavioral/chainOfResponsibility/AbstractLogge
 import { ErrorLogger } from "./behavioral/chainOfResponsibility/ErrorLogger";
 import { FileLogger } from "./behavioral/chainOfResponsibility/FileLogger";
 import { ConsoleLogger } from "./behavioral/chainOfResponsibility/ConsoleLogger";
+import { Stock } from "./behavioral/command/Stock/Stock";
+import { BuyStock } from "./behavioral/command/Stock/BuyStock";
+import { SellStock } from "./behavioral/command/Stock/SellStock";
+import { Broker } from "./behavioral/command/Broker";
 
 title("Running design-patterns")
 
@@ -41,6 +45,21 @@ function getChainOfLoggers(): AbstractLogger{
 
     return errorLogger;
 }
+
+
+section("# Command")
+
+const abcStock = new Stock();
+
+const buyStockOrder = new BuyStock(abcStock);
+const sellStockOrder = new SellStock(abcStock);
+
+const broker = new Broker();
+broker.takeOrder(buyStockOrder);
+broker.takeOrder(sellStockOrder);
+
+broker.placeOrders();
+
 const loggerChain = getChainOfLoggers();
 
 loggerChain.logMessage(AbstractLogger.INFO, "This is an information.");

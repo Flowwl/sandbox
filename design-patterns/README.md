@@ -4,12 +4,20 @@
 
 - ### Chain of responsibility
   - Permet de call une suite de fonction ou de la même class
-  > Exemple : log ERROR -> log DEBUG -> log NORMAL
+  > Exemple: log ERROR -> log DEBUG -> log NORMAL
+  
+- ### Command
+  - Permet d'executer plusieurs commandes d'affilé
+  > Exemple: 
+  > ```Typescript
+  > for(let order of orders) {
+  >   order.exectue() // sell or buy
+  > }
 ## Creational
 
 - ### Builder
   - Permet de build différents set d'items
-  > Exemple : <br/>
+  > Exemple: <br/>
   > MealBuilder.ts
   > ```Typescript
   > class MealBuilder {
