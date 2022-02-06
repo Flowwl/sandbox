@@ -1,4 +1,4 @@
-class OrExpression implements Expression {
+export class OrExpression implements Expression {
     private expr1: Expression | null = null;
     private expr2: Expression | null = null;
 

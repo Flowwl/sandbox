@@ -1,35 +1,34 @@
-import { Factory } from "./creational/factory/Factory";
-import { Singleton } from "./creational/singleton/Singleton";
-import { MealBuilder } from "./creational/builder/MealBuilder";
-import { ShapeCache } from "./creational/prototype/ShapeCache";
-import { AudioPlayer } from "./structural/adapter/mediaPlayer/AudioPlayer";
-import { Circle } from "./structural/bridge/shapes/Circle";
-import { Circle as DCircle } from "./structural/decorator/shapes/Circle";
-import { RedCircle } from "./structural/bridge/drawApi/RedCircle";
-import { GreenCircle } from "./structural/bridge/drawApi/GreenCircle";
-import { Person } from "./structural/filter/Person";
-import { CriteriaMale } from "./structural/filter/criterias/CriteriaMale";
-import { CriteriaFemale } from "./structural/filter/criterias/CriteriaFemale";
-import { CriteriaSingle } from "./structural/filter/criterias/CriteriaSingle";
-import { CriteriaAnd } from "./structural/filter/criterias/CriteriaAnd";
-import { CriteriaOr } from "./structural/filter/criterias/CriteriaOr";
-import { Employee } from "./structural/composite/Employee";
-import { RedShapeDecorator } from "./structural/decorator/decorators/RedShapeDecorator";
-import { Rectangle as DRectangle } from "./structural/decorator/shapes/Rectangle";
-import { ShapeMaker } from "./structural/facade/ShapeMaker";
-import { ShapeFactory } from "./structural/flyweight/ShapeFactory";
-import { ProxyImage } from "./structural/proxy/ProxyImage";
+/********************************************************************************
+ *                          Creational
+ ******************************************************************************** */
+
+import { Factory } from "./creational/factory";
+import { Singleton } from "./creational/singleton";
+import { MealBuilder } from "./creational/builder";
+import { ShapeCache } from "./creational/prototype";
+
+/********************************************************************************
+ *                          Structural
+ ******************************************************************************** */
+import { AudioPlayer } from "./structural/adapter";
+import { BridgeCircle } from "./structural/bridge";
+import { GreenCircle, RedCircle } from "./structural/bridge";
+import { CriteriaAnd, CriteriaFemale, CriteriaMale, CriteriaOr, CriteriaSingle, Person } from "./structural/filter";
+import { Employee } from "./structural/composite";
+import { RedShapeDecorator, DecoratorRectangle, DecoratorCircle } from "./structural/decorator";
+import { ShapeMaker } from "./structural/facade";
+import { ShapeFactory } from "./structural/flyweight";
+import { ProxyImage } from "./structural/proxy";
+
+/********************************************************************************
+ *                          Behavioral
+ ******************************************************************************** */
+import { AbstractLogger, ConsoleLogger, ErrorLogger, FileLogger } from "./behavioral/chainOfResponsibility";
+import { Broker, BuyStock, SellStock, Stock } from "./behavioral/command";
+import { NameRepository } from "./behavioral/iterator";
+import { AndExpression, OrExpression, TerminalExpression } from "./behavioral/expression";
+
 import { content, section, subtitle, title, whiteContent } from "./logs";
-import { AbstractLogger } from "./behavioral/chainOfResponsibility/AbstractLogger";
-import { ErrorLogger } from "./behavioral/chainOfResponsibility/ErrorLogger";
-import { FileLogger } from "./behavioral/chainOfResponsibility/FileLogger";
-import { ConsoleLogger } from "./behavioral/chainOfResponsibility/ConsoleLogger";
-import { Stock } from "./behavioral/command/Stock/Stock";
-import { BuyStock } from "./behavioral/command/Stock/BuyStock";
-import { SellStock } from "./behavioral/command/Stock/SellStock";
-import { Broker } from "./behavioral/command/Broker";
-import { NameRepository } from "./behavioral/iterator/NameRepository";
-import { TerminalExpression } from "./behavioral/expression/TerminalExpression";
 
 title("Running design-patterns");
 
@@ -145,8 +144,8 @@ content(audioPlayer.play("vlc", "far far away.vlc"));
 content(audioPlayer.play("avi", "mind me.avi"));
 
 section("# Bridge");
-const redCircle = new Circle(100, 100, 10, new RedCircle());
-const greenCircle = new Circle(100, 100, 10, new GreenCircle());
+const redCircle = new BridgeCircle(100, 100, 10, new RedCircle());
+const greenCircle = new BridgeCircle(100, 100, 10, new GreenCircle());
 
 content(redCircle.draw());
 content(greenCircle.draw());
@@ -181,9 +180,9 @@ for (const headEmployee of CEO.getSubordinates()) {
 }
 
 section("# Decorator");
-const dCircle = new DCircle();
-const redDCircle = new RedShapeDecorator(new DCircle());
-const redRectangle = new RedShapeDecorator(new DRectangle());
+const dCircle = new DecoratorCircle();
+const redDCircle = new RedShapeDecorator(new DecoratorCircle());
+const redRectangle = new RedShapeDecorator(new DecoratorRectangle());
 
 content("Circle with normal border");
 content(dCircle.draw());
