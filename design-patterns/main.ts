@@ -29,12 +29,13 @@ import { BuyStock } from "./behavioral/command/Stock/BuyStock";
 import { SellStock } from "./behavioral/command/Stock/SellStock";
 import { Broker } from "./behavioral/command/Broker";
 
-title("Running design-patterns")
+title("Running design-patterns");
 
-subtitle("Behavioral Patterns")
+subtitle("Behavioral Patterns");
 
-section("# Chain of responsibility")
-function getChainOfLoggers(): AbstractLogger{
+section("# Chain of responsibility");
+
+function getChainOfLoggers(): AbstractLogger {
 
     const errorLogger = new ErrorLogger();
     const fileLogger = new FileLogger();
@@ -46,8 +47,13 @@ function getChainOfLoggers(): AbstractLogger{
     return errorLogger;
 }
 
+const loggerChain = getChainOfLoggers();
 
-section("# Command")
+loggerChain.logMessage(AbstractLogger.INFO, "This is an information.");
+loggerChain.logMessage(AbstractLogger.DEBUG, "This is an debug level information.");
+loggerChain.logMessage(AbstractLogger.ERROR, "This is an error information.");
+
+section("# Command");
 
 const abcStock = new Stock();
 
@@ -60,52 +66,67 @@ broker.takeOrder(sellStockOrder);
 
 broker.placeOrders();
 
-const loggerChain = getChainOfLoggers();
+section("# Expression");
 
-loggerChain.logMessage(AbstractLogger.INFO, "This is an information.");
-loggerChain.logMessage(AbstractLogger.DEBUG, "This is an debug level information.");
-loggerChain.logMessage(AbstractLogger.ERROR, "This is an error information.");
+function getMaleExpression() {
+    const robert = new TerminalExpression("Robert");
+    const john = new TerminalExpression("John");
+    return new OrExpression(robert, john);
+}
 
-subtitle("Creational Patterns")
+//Rule: Julie is a married women
+function getMarriedWomanExpression() {
+    const julie = new TerminalExpression("Julie");
+    const married = new TerminalExpression("Married");
+    return new AndExpression(julie, married);
+}
 
+const isMale = getMaleExpression();
+const isMarriedWoman = getMarriedWomanExpression();
 
-section("# Builder")
-const mealBuilder = new MealBuilder()
-
-content("Veg Meal")
-const vegMeal = mealBuilder.prepareVegMeal()
-vegMeal.showItems().forEach((it) => content(it))
-content(`Total Cost: ${vegMeal.getCost()}`)
-
-content("")
-
-content("Non-Veg Meal")
-const nonVegMeal = mealBuilder.prepareNonVegMeal()
-nonVegMeal.showItems().forEach((it) => content(it))
-content(`Total Cost: ${nonVegMeal.getCost()}`)
+content("John is male? " + isMale.interpret("John"));
+content("Julie is a married women? " + isMarriedWoman.interpret("Married Julie"));
 
 
-section("# Factory")
-const factory = new Factory()
-content(factory.getShape("circle").draw())
-content(factory.getShape("rectangle").draw())
-content(factory.getShape("square").draw())
+subtitle("Creational Patterns");
+
+section("# Builder");
+const mealBuilder = new MealBuilder();
+
+content("Veg Meal");
+const vegMeal = mealBuilder.prepareVegMeal();
+vegMeal.showItems().forEach((it) => content(it));
+content(`Total Cost: ${vegMeal.getCost()}`);
+
+content("");
+
+content("Non-Veg Meal");
+const nonVegMeal = mealBuilder.prepareNonVegMeal();
+nonVegMeal.showItems().forEach((it) => content(it));
+content(`Total Cost: ${nonVegMeal.getCost()}`);
 
 
-section("# Prototype")
-ShapeCache.loadCache()
-content(`Shape: ${ShapeCache.getShape("1")}`)
-content(`Shape: ${ShapeCache.getShape("2")}`)
-content(`Shape: ${ShapeCache.getShape("3")}`)
+section("# Factory");
+const factory = new Factory();
+content(factory.getShape("circle").draw());
+content(factory.getShape("rectangle").draw());
+content(factory.getShape("square").draw());
 
 
-section("# Singleton")
-const singleton = Singleton.getInstance()
-content(singleton.showMessage())
+section("# Prototype");
+ShapeCache.loadCache();
+content(`Shape: ${ShapeCache.getShape("1")}`);
+content(`Shape: ${ShapeCache.getShape("2")}`);
+content(`Shape: ${ShapeCache.getShape("3")}`);
 
-subtitle("Structural Patterns")
 
-section("# Adapter")
+section("# Singleton");
+const singleton = Singleton.getInstance();
+content(singleton.showMessage());
+
+subtitle("Structural Patterns");
+
+section("# Adapter");
 const audioPlayer = new AudioPlayer();
 
 content(audioPlayer.play("mp3", "beyond the horizon.mp3"));
@@ -113,22 +134,22 @@ content(audioPlayer.play("mp4", "alone.mp4"));
 content(audioPlayer.play("vlc", "far far away.vlc"));
 content(audioPlayer.play("avi", "mind me.avi"));
 
-section("# Bridge")
-const redCircle = new Circle(100, 100, 10, new RedCircle())
-const greenCircle = new Circle(100, 100, 10, new GreenCircle())
+section("# Bridge");
+const redCircle = new Circle(100, 100, 10, new RedCircle());
+const greenCircle = new Circle(100, 100, 10, new GreenCircle());
 
-content(redCircle.draw())
-content(greenCircle.draw())
+content(redCircle.draw());
+content(greenCircle.draw());
 
-section("# Composite")
+section("# Composite");
 
-const CEO = new Employee("John","CEO", 30000);
-const headSales = new Employee("Robert","Head Sales", 20000);
-const headMarketing = new Employee("Michel","Head Marketing", 20000);
-const clerk1 = new Employee("Laura","Marketing", 10000);
-const clerk2 = new Employee("Bob","Marketing", 10000);
-const salesExecutive1 = new Employee("Richard","Sales", 10000);
-const salesExecutive2 = new Employee("Rob","Sales", 10000);
+const CEO = new Employee("John", "CEO", 30000);
+const headSales = new Employee("Robert", "Head Sales", 20000);
+const headMarketing = new Employee("Michel", "Head Marketing", 20000);
+const clerk1 = new Employee("Laura", "Marketing", 10000);
+const clerk2 = new Employee("Bob", "Marketing", 10000);
+const salesExecutive1 = new Employee("Richard", "Sales", 10000);
+const salesExecutive2 = new Employee("Rob", "Sales", 10000);
 
 CEO.add(headSales);
 CEO.add(headMarketing);
@@ -149,7 +170,7 @@ for (const headEmployee of CEO.getSubordinates()) {
     }
 }
 
-section("# Decorator")
+section("# Decorator");
 const dCircle = new DCircle();
 const redDCircle = new RedShapeDecorator(new DCircle());
 const redRectangle = new RedShapeDecorator(new DRectangle());
@@ -164,7 +185,7 @@ content("Rectangle of red border");
 content(redRectangle.draw());
 
 
-section("# Facade")
+section("# Facade");
 const shapeMaker = new ShapeMaker();
 
 content(shapeMaker.drawCircle());
@@ -172,9 +193,9 @@ content(shapeMaker.drawRectangle());
 content(shapeMaker.drawSquare());
 
 
-section("# Filter")
+section("# Filter");
 const persons: Person[] = [
-    new Person("Robert","Male", "Single"),
+    new Person("Robert", "Male", "Single"),
     new Person("John", "Male", "Married"),
     new Person("Laura", "Female", "Married"),
     new Person("Diana", "Female", "Single"),
@@ -189,8 +210,9 @@ const singleMale = new CriteriaAnd(single, male);
 const singleOrFemale = new CriteriaOr(single, female);
 
 function printPersons(person: Person[]) {
-    content(person.map((person) => person.toString()).join(" | "))
+    content(person.map((person) => person.toString()).join(" | "));
 }
+
 whiteContent(`Males:`);
 printPersons(male.meetCriteria(persons));
 
@@ -204,14 +226,14 @@ whiteContent(`Single Or Females:`);
 printPersons(singleOrFemale.meetCriteria(persons));
 
 
-section("# Flyweight")
+section("# Flyweight");
 const fCircle = ShapeFactory.getCircle("orange");
 fCircle.setX(50);
 fCircle.setY(100);
 fCircle.setRadius(100);
 content(fCircle.draw());
 
-section("# Proxy")
+section("# Proxy");
 const image = new ProxyImage("test_10mb.jpg");
 
 //image will be loaded from disk

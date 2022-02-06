@@ -13,6 +13,19 @@
   > for(let order of orders) {
   >   order.exectue() // sell or buy
   > }
+   
+  
+- ### Expression
+  - Permet de faire des liens entre des expressions données dans le terminal 
+  > Exemple: 
+  > ```Typescript
+  > function getMaleExpression() {
+  >   const robert = new TerminalExpression("Robert");
+  >   const john = new TerminalExpression("John");
+  >   return new OrExpression(robert, john);
+  > }
+  > const isMale = getMaleExpression();
+  > content("John is male? " + isMale.interpret("John"));
 ## Creational
 
 - ### Builder
