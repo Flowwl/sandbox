@@ -1,3 +1,5 @@
+import { Expression } from "./Expression";
+
 export class TerminalExpression implements Expression {
     private data: string;
 

@@ -29,6 +29,7 @@ import { NameRepository } from "./behavioral/iterator";
 import { AndExpression, OrExpression, TerminalExpression } from "./behavioral/expression";
 
 import { content, section, subtitle, title, whiteContent } from "./logs";
+import { MediatorUser } from "./behavioral/mediator";
 
 title("Running design-patterns");
 
@@ -95,6 +96,15 @@ for (let iter = namesRepository.getIterator(); iter.hasNext();) {
     const name = iter.next();
     content("Name : " + name);
 }
+
+
+section("# Mediator")
+
+const robert = new MediatorUser("Robert");
+const john = new MediatorUser("John");
+
+robert.sendMessage("Hi! John!");
+john.sendMessage("Hello! Robert!");
 
 
 subtitle("Creational Patterns");
