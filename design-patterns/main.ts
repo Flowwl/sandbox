@@ -28,6 +28,8 @@ import { Stock } from "./behavioral/command/Stock/Stock";
 import { BuyStock } from "./behavioral/command/Stock/BuyStock";
 import { SellStock } from "./behavioral/command/Stock/SellStock";
 import { Broker } from "./behavioral/command/Broker";
+import { NameRepository } from "./behavioral/iterator/NameRepository";
+import { TerminalExpression } from "./behavioral/expression/TerminalExpression";
 
 title("Running design-patterns");
 
@@ -86,6 +88,14 @@ const isMarriedWoman = getMarriedWomanExpression();
 
 content("John is male? " + isMale.interpret("John"));
 content("Julie is a married women? " + isMarriedWoman.interpret("Married Julie"));
+
+section("# Iterator");
+
+const namesRepository = new NameRepository();
+for (let iter = namesRepository.getIterator(); iter.hasNext();) {
+    const name = iter.next();
+    content("Name : " + name);
+}
 
 
 subtitle("Creational Patterns");
