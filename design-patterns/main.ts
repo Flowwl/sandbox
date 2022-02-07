@@ -30,6 +30,7 @@ import { AndExpression, OrExpression, TerminalExpression } from "./behavioral/ex
 
 import { content, section, subtitle, title, whiteContent } from "./logs";
 import { MediatorUser } from "./behavioral/mediator";
+import { CareTaker, Originator } from "./behavioral/memento";
 
 title("Running design-patterns");
 
@@ -106,6 +107,25 @@ const john = new MediatorUser("John");
 robert.sendMessage("Hi! John!");
 john.sendMessage("Hello! Robert!");
 
+section("# Memento")
+
+const originator = new Originator();
+const careTaker = new CareTaker();
+
+originator.setState("State #1");
+originator.setState("State #2");
+careTaker.add(originator.saveStateToMemento());
+
+originator.setState("State #3");
+careTaker.add(originator.saveStateToMemento());
+
+originator.setState("State #4");
+content("Current State: " + originator.getState());
+
+originator.getStateFromMemento(careTaker.get(0));
+content("First saved State: " + originator.getState());
+originator.getStateFromMemento(careTaker.get(1));
+content("Second saved State: " + originator.getState());
 
 subtitle("Creational Patterns");
 
