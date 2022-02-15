@@ -34,6 +34,7 @@ import { CareTaker, Originator } from "./behavioral/memento";
 import { Subject, HexaObserver, OctalObserver, BinaryObserver } from "./behavioral/observer";
 import { StartState, StateContext, StopState } from "./behavioral/state";
 import { OperationAdd, OperationMultiply, OperationSubstract, StrategyContext } from "./behavioral/strategy";
+import { Cricket, Football } from "./behavioral/template";
 
 title("Running design-patterns");
 
@@ -168,6 +169,16 @@ content("10 - 5 = " + strategyContext.executeStrategy(10, 5));
 
 strategyContext = new StrategyContext(new OperationMultiply());
 content("10 * 5 = " + strategyContext.executeStrategy(10, 5));
+
+
+
+section("# Template")
+
+let game = new Cricket();
+game.play();
+game = new Football();
+game.play();
+
 
 
 
