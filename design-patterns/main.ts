@@ -31,6 +31,7 @@ import { AndExpression, OrExpression, TerminalExpression } from "./behavioral/ex
 import { content, section, subtitle, title, whiteContent } from "./logs";
 import { MediatorUser } from "./behavioral/mediator";
 import { CareTaker, Originator } from "./behavioral/memento";
+import { Subject, HexaObserver, OctalObserver, BinaryObserver  } from "./behavioral/observer";
 
 title("Running design-patterns");
 
@@ -126,6 +127,23 @@ originator.getStateFromMemento(careTaker.get(0));
 content("First saved State: " + originator.getState());
 originator.getStateFromMemento(careTaker.get(1));
 content("Second saved State: " + originator.getState());
+
+section("# Observer")
+
+const subject = new Subject();
+
+new HexaObserver(subject);
+new OctalObserver(subject);
+new BinaryObserver(subject);
+
+content("First state change: 15");
+subject.setState(15);
+content("Second state change: 10");
+subject.setState(10);
+
+
+
+
 
 subtitle("Creational Patterns");
 
