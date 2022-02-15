@@ -31,7 +31,8 @@ import { AndExpression, OrExpression, TerminalExpression } from "./behavioral/ex
 import { content, section, subtitle, title, whiteContent } from "./logs";
 import { MediatorUser } from "./behavioral/mediator";
 import { CareTaker, Originator } from "./behavioral/memento";
-import { Subject, HexaObserver, OctalObserver, BinaryObserver  } from "./behavioral/observer";
+import { Subject, HexaObserver, OctalObserver, BinaryObserver } from "./behavioral/observer";
+import { Context, StartState, StopState } from "./behavioral/state";
 
 title("Running design-patterns");
 
@@ -100,7 +101,7 @@ for (let iter = namesRepository.getIterator(); iter.hasNext();) {
 }
 
 
-section("# Mediator")
+section("# Mediator");
 
 const robert = new MediatorUser("Robert");
 const john = new MediatorUser("John");
@@ -108,7 +109,7 @@ const john = new MediatorUser("John");
 robert.sendMessage("Hi! John!");
 john.sendMessage("Hello! Robert!");
 
-section("# Memento")
+section("# Memento");
 
 const originator = new Originator();
 const careTaker = new CareTaker();
@@ -128,7 +129,7 @@ content("First saved State: " + originator.getState());
 originator.getStateFromMemento(careTaker.get(1));
 content("Second saved State: " + originator.getState());
 
-section("# Observer")
+section("# Observer");
 
 const subject = new Subject();
 
@@ -140,6 +141,24 @@ content("First state change: 15");
 subject.setState(15);
 content("Second state change: 10");
 subject.setState(10);
+
+section("# State");
+
+const context = new Context();
+
+const startState = new StartState();
+startState.doAction(context);
+
+content(context.getState().toString());
+
+const stopState = new StopState();
+stopState.doAction(context);
+
+content(context.getState().toString());
+
+
+
+
 
 
 
