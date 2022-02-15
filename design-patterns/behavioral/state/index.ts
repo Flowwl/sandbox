@@ -8,5 +8,5 @@ export {
     StopState,
     StartState,
     State,
-    Context
+    Context as StateContext
 }

@@ -32,7 +32,8 @@ import { content, section, subtitle, title, whiteContent } from "./logs";
 import { MediatorUser } from "./behavioral/mediator";
 import { CareTaker, Originator } from "./behavioral/memento";
 import { Subject, HexaObserver, OctalObserver, BinaryObserver } from "./behavioral/observer";
-import { Context, StartState, StopState } from "./behavioral/state";
+import { StartState, StateContext, StopState } from "./behavioral/state";
+import { OperationAdd, OperationMultiply, OperationSubstract, StrategyContext } from "./behavioral/strategy";
 
 title("Running design-patterns");
 
@@ -144,20 +145,29 @@ subject.setState(10);
 
 section("# State");
 
-const context = new Context();
+const stateContext = new StateContext();
 
 const startState = new StartState();
-startState.doAction(context);
+startState.doAction(stateContext);
 
-content(context.getState().toString());
+content(stateContext.getState().toString());
 
 const stopState = new StopState();
-stopState.doAction(context);
+stopState.doAction(stateContext);
 
-content(context.getState().toString());
+content(stateContext.getState().toString());
 
 
+section("# Strategy")
 
+let strategyContext = new StrategyContext(new OperationAdd());
+content("10 + 5 = " + strategyContext.executeStrategy(10, 5));
+
+strategyContext = new StrategyContext(new OperationSubstract());
+content("10 - 5 = " + strategyContext.executeStrategy(10, 5));
+
+strategyContext = new StrategyContext(new OperationMultiply());
+content("10 * 5 = " + strategyContext.executeStrategy(10, 5));
 
 
 
