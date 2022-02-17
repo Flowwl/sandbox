@@ -39,6 +39,7 @@ import { Computer, ComputerPart, ComputerPartDisplayVisitor } from "./behavioral
 import { Student, StudentController, StudentView } from "./others/mvc";
 import { BusinessDelegate } from "./others/businessDelegate/BusinessDelegate";
 import { Client } from "./others/businessDelegate/Client";
+import { CompositeClient } from "./others/composite";
 
 title("Running design-patterns");
 
@@ -354,6 +355,17 @@ client.doTask();
 
 businessDelegate.setServiceType("JMS");
 client.doTask();
+
+
+
+section("# Composite")
+
+const compositeClient = new CompositeClient();
+compositeClient.setData("Test", "Data");
+compositeClient.printData();
+compositeClient.setData("Second Test", "Data1");
+compositeClient.printData();
+
 
 
 section("# MVC");
