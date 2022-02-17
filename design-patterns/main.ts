@@ -433,15 +433,10 @@ controller.updateView();
 
 section("# Service Locator")
 
-let service = ServiceLocator.getService("Service1");
+let service = ServiceLocator.getService("SERVICE1");
 service.execute();
-service = ServiceLocator.getService("Service2");
+service = ServiceLocator.getService("SERVICE2");
 service.execute();
-service = ServiceLocator.getService("Service1");
-service.execute();
-service = ServiceLocator.getService("Service2");
-service.execute();
-
 
 section("# Transfer Object")
 
