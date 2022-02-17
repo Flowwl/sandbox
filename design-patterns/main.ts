@@ -48,6 +48,7 @@ import {
     InterceptClient,
     InterceptTarget
 } from "./others/interceptingFilter";
+import { ServiceLocator } from "./others/serviceLocator";
 
 title("Running design-patterns");
 
@@ -428,3 +429,14 @@ controller.setStudentName("John");
 
 controller.updateView();
 
+
+section("# Service Locator")
+
+let service = ServiceLocator.getService("Service1");
+service.execute();
+service = ServiceLocator.getService("Service2");
+service.execute();
+service = ServiceLocator.getService("Service1");
+service.execute();
+service = ServiceLocator.getService("Service2");
+service.execute();
