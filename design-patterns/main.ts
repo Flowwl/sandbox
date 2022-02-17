@@ -35,6 +35,7 @@ import { Subject, HexaObserver, OctalObserver, BinaryObserver } from "./behavior
 import { StartState, StateContext, StopState } from "./behavioral/state";
 import { OperationAdd, OperationMultiply, OperationSubstract, StrategyContext } from "./behavioral/strategy";
 import { Cricket, Football } from "./behavioral/template";
+import { Computer, ComputerPart, ComputerPartDisplayVisitor } from "./behavioral/visitor";
 
 title("Running design-patterns");
 
@@ -180,9 +181,10 @@ game = new Football();
 game.play();
 
 
+section("# Visitor")
 
-
-
+const computer: ComputerPart = new Computer();
+computer.accept(new ComputerPartDisplayVisitor());
 
 
 subtitle("Creational Patterns");
