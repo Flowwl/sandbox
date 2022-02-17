@@ -11,11 +11,10 @@ import { ShapeCache } from "./creational/prototype";
  *                          Structural
  ******************************************************************************** */
 import { AudioPlayer } from "./structural/adapter";
-import { BridgeCircle } from "./structural/bridge";
-import { GreenCircle, RedCircle } from "./structural/bridge";
+import { BridgeCircle, GreenCircle, RedCircle } from "./structural/bridge";
 import { CriteriaAnd, CriteriaFemale, CriteriaMale, CriteriaOr, CriteriaSingle, Person } from "./structural/filter";
 import { Employee } from "./structural/composite";
-import { RedShapeDecorator, DecoratorRectangle, DecoratorCircle } from "./structural/decorator";
+import { DecoratorCircle, DecoratorRectangle, RedShapeDecorator } from "./structural/decorator";
 import { ShapeMaker } from "./structural/facade";
 import { ShapeFactory } from "./structural/flyweight";
 import { ProxyImage } from "./structural/proxy";
@@ -31,7 +30,7 @@ import { AndExpression, OrExpression, TerminalExpression } from "./behavioral/ex
 import { content, section, subtitle, title, whiteContent } from "./logs";
 import { MediatorUser } from "./behavioral/mediator";
 import { CareTaker, Originator } from "./behavioral/memento";
-import { Subject, HexaObserver, OctalObserver, BinaryObserver } from "./behavioral/observer";
+import { BinaryObserver, HexaObserver, OctalObserver, Subject } from "./behavioral/observer";
 import { StartState, StateContext, StopState } from "./behavioral/state";
 import { OperationAdd, OperationMultiply, OperationSubstract, StrategyContext } from "./behavioral/strategy";
 import { Cricket, Football } from "./behavioral/template";
@@ -42,6 +41,13 @@ import { Client } from "./others/businessDelegate/Client";
 import { CompositeClient } from "./others/composite";
 import { StudentDaoImpl } from "./others/dataAccessObject";
 import { FrontController } from "./others/frontController";
+import {
+    AuthenticationFilter,
+    DebugFilter,
+    FilterManager,
+    InterceptClient,
+    InterceptTarget
+} from "./others/interceptingFilter";
 
 title("Running design-patterns");
 
@@ -393,6 +399,16 @@ frontController.dispatchRequest("STUDENT");
 
 
 
+
+section("# Intercepting Filter")
+
+const filterManager = new FilterManager(new InterceptTarget());
+filterManager.setFilter(new AuthenticationFilter());
+filterManager.setFilter(new DebugFilter());
+
+const interceptClient = new InterceptClient();
+interceptClient.setFilterManager(filterManager);
+interceptClient.sendRequest("HOME");
 
 
 section("# MVC");
