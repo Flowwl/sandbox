@@ -37,6 +37,8 @@ import { OperationAdd, OperationMultiply, OperationSubstract, StrategyContext } 
 import { Cricket, Football } from "./behavioral/template";
 import { Computer, ComputerPart, ComputerPartDisplayVisitor } from "./behavioral/visitor";
 import { Student, StudentController, StudentView } from "./others/mvc";
+import { BusinessDelegate } from "./others/businessDelegate/BusinessDelegate";
+import { Client } from "./others/businessDelegate/Client";
 
 title("Running design-patterns");
 
@@ -343,7 +345,18 @@ content(image.display());
 
 subtitle("Other Patterns");
 
-section("MVC");
+section("# Business Delegate")
+const businessDelegate = new BusinessDelegate();
+businessDelegate.setServiceType("EJB");
+
+const client = new Client(businessDelegate);
+client.doTask();
+
+businessDelegate.setServiceType("JMS");
+client.doTask();
+
+
+section("# MVC");
 
 const model = new Student();
 model.setName("Robert");
