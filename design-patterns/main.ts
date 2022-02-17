@@ -50,6 +50,7 @@ import {
 } from "./others/interceptingFilter";
 import { ServiceLocator } from "./others/serviceLocator";
 import { StudentBO } from "./others/transferObject";
+import { CustomerFactory } from "./others/nullObject";
 
 title("Running design-patterns");
 
@@ -376,7 +377,7 @@ compositeClient.setData("Second Test", "Data1");
 compositeClient.printData();
 
 
-section("# dataAccessObject");
+section("# Data Access Object");
 
 const studentDao = new StudentDaoImpl();
 
@@ -392,17 +393,14 @@ studentDao.getStudent(0);
 content("Student: [RollNo : " + student.getRollNo() + ", Name : " + student.getName() + " ]");
 
 
-
-section("# Front Controller")
+section("# Front Controller");
 
 const frontController = new FrontController();
 frontController.dispatchRequest("HOME");
 frontController.dispatchRequest("STUDENT");
 
 
-
-
-section("# Intercepting Filter")
+section("# Intercepting Filter");
 
 const filterManager = new FilterManager(new InterceptTarget());
 filterManager.setFilter(new AuthenticationFilter());
@@ -430,15 +428,30 @@ controller.setStudentName("John");
 
 controller.updateView();
 
+section("# Null Object");
 
-section("# Service Locator")
+const customer1 = CustomerFactory.getCustomer("Rob");
+const customer2 = CustomerFactory.getCustomer("Bob");
+const customer3 = CustomerFactory.getCustomer("Julie");
+const customer4 = CustomerFactory.getCustomer("Laura");
+
+content("Customers");
+content(customer1.getName());
+content(customer2.getName());
+content(customer3.getName());
+content(customer4.getName());
+
+
+
+
+section("# Service Locator");
 
 let service = ServiceLocator.getService("SERVICE1");
 service.execute();
 service = ServiceLocator.getService("SERVICE2");
 service.execute();
 
-section("# Transfer Object")
+section("# Transfer Object");
 
 const studentBusinessObject = new StudentBO();
 
