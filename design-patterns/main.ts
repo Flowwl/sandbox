@@ -41,6 +41,7 @@ import { BusinessDelegate } from "./others/businessDelegate/BusinessDelegate";
 import { Client } from "./others/businessDelegate/Client";
 import { CompositeClient } from "./others/composite";
 import { StudentDaoImpl } from "./others/dataAccessObject";
+import { FrontController } from "./others/frontController";
 
 title("Running design-patterns");
 
@@ -381,6 +382,17 @@ studentDao.updateStudent(student);
 
 studentDao.getStudent(0);
 content("Student: [RollNo : " + student.getRollNo() + ", Name : " + student.getName() + " ]");
+
+
+
+section("# Front Controller")
+
+const frontController = new FrontController();
+frontController.dispatchRequest("HOME");
+frontController.dispatchRequest("STUDENT");
+
+
+
 
 
 section("# MVC");

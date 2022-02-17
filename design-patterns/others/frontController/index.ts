@@ -1,0 +1,1 @@
+export { FrontController } from "./FrontController";
