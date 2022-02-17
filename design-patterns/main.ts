@@ -40,6 +40,7 @@ import { Student, StudentController, StudentView } from "./others/mvc";
 import { BusinessDelegate } from "./others/businessDelegate/BusinessDelegate";
 import { Client } from "./others/businessDelegate/Client";
 import { CompositeClient } from "./others/composite";
+import { StudentDaoImpl } from "./others/dataAccessObject";
 
 title("Running design-patterns");
 
@@ -346,7 +347,7 @@ content(image.display());
 
 subtitle("Other Patterns");
 
-section("# Business Delegate")
+section("# Business Delegate");
 const businessDelegate = new BusinessDelegate();
 businessDelegate.setServiceType("EJB");
 
@@ -357,8 +358,7 @@ businessDelegate.setServiceType("JMS");
 client.doTask();
 
 
-
-section("# Composite")
+section("# Composite");
 
 const compositeClient = new CompositeClient();
 compositeClient.setData("Test", "Data");
@@ -366,6 +366,21 @@ compositeClient.printData();
 compositeClient.setData("Second Test", "Data1");
 compositeClient.printData();
 
+
+section("# dataAccessObject");
+
+const studentDao = new StudentDaoImpl();
+
+for (let student of studentDao.getAllStudents()) {
+    content("Student: [RollNo : " + student.getRollNo() + ", Name : " + student.getName() + " ]");
+}
+
+const student = studentDao.getAllStudents()[0];
+student.setName("Michael");
+studentDao.updateStudent(student);
+
+studentDao.getStudent(0);
+content("Student: [RollNo : " + student.getRollNo() + ", Name : " + student.getName() + " ]");
 
 
 section("# MVC");
