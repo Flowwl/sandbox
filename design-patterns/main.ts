@@ -36,6 +36,7 @@ import { StartState, StateContext, StopState } from "./behavioral/state";
 import { OperationAdd, OperationMultiply, OperationSubstract, StrategyContext } from "./behavioral/strategy";
 import { Cricket, Football } from "./behavioral/template";
 import { Computer, ComputerPart, ComputerPartDisplayVisitor } from "./behavioral/visitor";
+import { Student, StudentController, StudentView } from "./others/mvc";
 
 title("Running design-patterns");
 
@@ -160,7 +161,7 @@ stopState.doAction(stateContext);
 content(stateContext.getState().toString());
 
 
-section("# Strategy")
+section("# Strategy");
 
 let strategyContext = new StrategyContext(new OperationAdd());
 content("10 + 5 = " + strategyContext.executeStrategy(10, 5));
@@ -172,8 +173,7 @@ strategyContext = new StrategyContext(new OperationMultiply());
 content("10 * 5 = " + strategyContext.executeStrategy(10, 5));
 
 
-
-section("# Template")
+section("# Template");
 
 let game = new Cricket();
 game.play();
@@ -181,7 +181,7 @@ game = new Football();
 game.play();
 
 
-section("# Visitor")
+section("# Visitor");
 
 const computer: ComputerPart = new Computer();
 computer.accept(new ComputerPartDisplayVisitor());
@@ -340,4 +340,23 @@ content(image.display());
 
 //image will not be loaded from disk
 content(image.display());
+
+subtitle("Other Patterns");
+
+section("MVC");
+
+const model = new Student();
+model.setName("Robert");
+model.setRollNo("10");
+//Create a view : to write student details on console
+const view = new StudentView();
+
+const controller = new StudentController(model, view);
+
+controller.updateView();
+
+//update model data
+controller.setStudentName("John");
+
+controller.updateView();
 
