@@ -49,6 +49,7 @@ import {
     InterceptTarget
 } from "./others/interceptingFilter";
 import { ServiceLocator } from "./others/serviceLocator";
+import { StudentBO } from "./others/transferObject";
 
 title("Running design-patterns");
 
@@ -440,3 +441,21 @@ service = ServiceLocator.getService("Service1");
 service.execute();
 service = ServiceLocator.getService("Service2");
 service.execute();
+
+
+section("# Transfer Object")
+
+const studentBusinessObject = new StudentBO();
+
+for (let student of studentBusinessObject.getAllStudents()) {
+    content("Student: [RollNo : " + student.getRollNo() + ", Name : " + student.getName() + " ]");
+}
+
+let transferStudent = studentBusinessObject.getAllStudents()[0];
+transferStudent.setName("Michael");
+studentBusinessObject.updateStudent(transferStudent);
+
+//get the student
+transferStudent = studentBusinessObject.getStudent(0);
+content("Student: [RollNo : " + student.getRollNo() + ", Name : " + student.getName() + " ]");
+
