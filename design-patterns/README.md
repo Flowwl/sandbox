@@ -26,6 +26,29 @@
   > }
   > const isMale = getMaleExpression();
   > content("John is male? " + isMale.interpret("John"));
+
+- ### Mediator
+  - Permet de réduire la complexité de la communication entre plusieurs objets/classes
+
+- ### Memento
+  - Permet de restorer un ancien state (via une liste d'action, un peux comme le undo/redo)
+  
+- ### Observer
+  - Permet de notifier à tous les objets reliés l'update du sujet
+
+- ### State
+  - Permet de faire en sorte que le comportement d'une classe change selon son état
+
+- ### Strategy
+  - Permet de modifier le comportement d'une fonction au runtime
+
+- ### Template
+  - Permet de templater un objet permettant d'impémenter des objets ayant la même forme.
+
+- ### Visitor
+  - Permet de changer l'éxecution d'une class selon son visiteur
+
+
 ## Creational
 
 - ### Builder
@@ -153,3 +176,33 @@
   - Permet de créer une hashmap qui conserve en cache des données afin de limiter la consommation de ressources 
 - ### Proxy
   - Permet de mettre un objet en cache afin de le réafficher plus tard sans le load
+
+## Others
+
+- ### Business Delegate
+  - Permet de séparer la logique business de la présentation
+
+- ### Composite Entity
+  - Permet de représenter un graph d'objets
+
+- ### Data Access Object
+  - Permet de séparer l'accès en base de données qui est une action de bas-niveau des données business qui sont de plus haut niveau
+
+- ### Front Controller
+  - Permet d'implémenter un handler de request centralisé
+
+- ### Intercepting Filter
+  - Permet de faire du pre-processing de requête/réponse
+
+- ### MVC
+  - Permet de séparer les couches dans l'application
+  
+- ### Null Object
+  - Permet de mock un objet grâce à un nullObject au lieu de check s'il est null
+
+- ### Service Locator
+  - Permet de mieux localiser des services au sein de l'application avec un système de cache
+
+- ### Transfer Object
+  - Permet de passer au serveur plusieurs attributs d'un coup
+

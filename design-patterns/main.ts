@@ -38,7 +38,7 @@ import { Computer, ComputerPart, ComputerPartDisplayVisitor } from "./behavioral
 import { Student, StudentController, StudentView } from "./others/mvc";
 import { BusinessDelegate } from "./others/businessDelegate/BusinessDelegate";
 import { Client } from "./others/businessDelegate/Client";
-import { CompositeClient } from "./others/composite";
+import { CompositeClient } from "./others/compositeEntity";
 import { StudentDaoImpl } from "./others/dataAccessObject";
 import { FrontController } from "./others/frontController";
 import {
