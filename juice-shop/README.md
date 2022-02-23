@@ -1,3 +1,10 @@
+
+# Notions
+
+- [x] XSS attack (`<iframe src="javascript:alert(`xss`)">` in search bar)
+- [x] SQL Injection (`' OR true--` in email)
+
+
 # ![Juice Shop Logo](https://raw.githubusercontent.com/juice-shop/juice-shop/master/frontend/src/assets/public/images/JuiceShop_Logo_100px.png) OWASP Juice Shop
 
 [![OWASP Flagship](https://img.shields.io/badge/owasp-flagship%20project-48A646.svg)](https://owasp.org/projects/#sec-flagships)

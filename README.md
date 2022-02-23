@@ -5,25 +5,29 @@ Sandbox report where I'll be testing some techno
 - [x] Design patterns
 
 ## In Progress
-- [ ] Learn design patterns
 - [ ] Read Q&A of design patterns
+
+# Sided
 - [ ] Search for more javascript design pattern (wait for the book)
+- [ ] OWASP Juice Shop
+- [ ] Learn design patterns
 
 ## Todo
-- [ ] Go
 - [ ] VueJs
 - [ ] GrahpQL
-- [ ] Terraform
-- [ ] Ruby on Rails
 - [ ] Prometeus (Monitoring)
-- [ ] Wordpress
 - [ ] Nest Js
 - [ ] MongoDB
+- [ ] Terraform
+- [ ] Ansible
+
+- [ ] Go
+- [ ] Ruby on Rails
+- [ ] Wordpress
 - [ ] Flutter
 - [ ] Rust
 - [ ] React Open source
 - [ ] ThreeJs
-- [ ] OWASP Juice Shop
 - [ ] Solidity
 - [ ] Web 3
 - [ ] Etudier le repo 360Learning
