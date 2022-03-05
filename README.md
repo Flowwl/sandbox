@@ -3,17 +3,17 @@ Sandbox report where I'll be testing some techno
 
 ## Done
 - [x] Design patterns
+- [X] Read Q&A of design patterns
+- [X] Learn design patterns
 
 ## In Progress
-- [ ] Read Q&A of design patterns
+- [ ] VueJs
 
 # Sided
 - [ ] Search for more javascript design pattern (wait for the book)
 - [ ] OWASP Juice Shop
-- [ ] Learn design patterns
 
 ## Todo
-- [ ] VueJs
 - [ ] GrahpQL
 - [ ] Prometeus (Monitoring)
 - [ ] Nest Js
@@ -30,4 +30,5 @@ Sandbox report where I'll be testing some techno
 - [ ] ThreeJs
 - [ ] Solidity
 - [ ] Web 3
+- [ ] Kubernetes
 - [ ] Etudier le repo 360Learning
