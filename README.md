@@ -5,9 +5,10 @@ Sandbox report where I'll be testing some techno
 - [x] Design patterns
 - [X] Read Q&A of design patterns
 - [X] Learn design patterns
+- [X] VueJs
 
 ## In Progress
-- [ ] VueJs
+- [ ] Nest Js
 
 # Sided
 - [ ] Search for more javascript design pattern (wait for the book)
