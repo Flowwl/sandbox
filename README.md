@@ -5,18 +5,20 @@ Sandbox report where I'll be testing some techno
 - [x] Design patterns
 - [X] Read Q&A of design patterns
 - [X] Learn design patterns
-- [X] VueJs
 - [X] Nest Js
 - [X] Rust
 - [X] Flutter / Dart
 - [X] Go
-- [X] OWASP Juice Shop
 
+## Maybe in depth later
+- [X] VueJs
+- [X] OWASP Juice Shop
+- [X] Ruby on Rails (Maybe in depth later)
+- [X] Prometeus (Monitoring)
 
 ## In Progress
 - [ ] GraphQL
-- [ ] Prometeus (Monitoring)
-- [ ] Ruby on Rails
+- [ ] Kubernetes
 
 ## In Depth
 - [ ] MongoDB
@@ -26,17 +28,17 @@ Sandbox report where I'll be testing some techno
 
 
 ## Todo
-
 - [ ] Ansible
-- [ ] Kubernetes
 - [ ] Elastic Search
-- [ ] Php
-
-## Sided
-- [ ] React Open source (Take open source courses)
 
 ## Later
 - [ ] Web 3
 - [ ] Solidity
+
+## Maybe
+- [ ] React Open source (Take open source courses)
+- [ ] Php
+- [ ] Ruby
+
 
 
