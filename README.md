@@ -8,11 +8,12 @@ Sandbox report where I'll be testing some techno
 - [X] VueJs
 - [X] Nest Js
 - [X] Rust
+- [X] Flutter / Dart
+- [X] Go
 
 ## In Progress
 - [ ] MongoDB
 - [ ] GrahpQL
-- [ ] Flutter
 - [ ] Prometeus (Monitoring)
 
 # Sided
@@ -21,11 +22,10 @@ Sandbox report where I'll be testing some techno
 - [ ] React Open source (Take open source courses)
 
 ## Todo
-- [ ] Go
+
 - [ ] Solidity
 - [ ] Web 3
 - [ ] Ruby on Rails
-
 
 - [ ] Terraform
 - [ ] Ansible
