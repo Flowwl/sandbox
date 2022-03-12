@@ -6,30 +6,32 @@ Sandbox report where I'll be testing some techno
 - [X] Read Q&A of design patterns
 - [X] Learn design patterns
 - [X] VueJs
+- [X] Nest Js
 
 ## In Progress
-- [ ] Nest Js
+- [ ] MongoDB
+- [ ] GrahpQL
+- [ ] React Open source
+
 
 # Sided
 - [ ] Search for more javascript design pattern (wait for the book)
 - [ ] OWASP Juice Shop
 
 ## Todo
-- [ ] GrahpQL
-- [ ] Prometeus (Monitoring)
-- [ ] Nest Js
-- [ ] MongoDB
-- [ ] Terraform
-- [ ] Ansible
-
 - [ ] Go
-- [ ] Ruby on Rails
-- [ ] Wordpress
 - [ ] Flutter
 - [ ] Rust
-- [ ] React Open source
-- [ ] ThreeJs
 - [ ] Solidity
 - [ ] Web 3
+
+- [ ] Prometeus (Monitoring)
+- [ ] Terraform
+- [ ] Ansible
+- [ ] Wordpress
+- 
 - [ ] Kubernetes
-- [ ] Etudier le repo 360Learning
+- [ ] Ruby on Rails
+
+- [ ] ThreeJs
+
