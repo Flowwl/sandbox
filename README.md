@@ -10,28 +10,32 @@ Sandbox report where I'll be testing some techno
 - [X] Rust
 - [X] Flutter / Dart
 - [X] Go
+- [X] OWASP Juice Shop
+
 
 ## In Progress
-- [ ] MongoDB
 - [ ] GrahpQL
 - [ ] Prometeus (Monitoring)
 
-# Sided
-- [ ] Search for more javascript design pattern (wait for the book)
-- [ ] OWASP Juice Shop
-- [ ] React Open source (Take open source courses)
+## In Depth
+- [ ] MongoDB
+- [ ] Terraform
+- [ ] Wordpress
 
 ## Todo
-
-- [ ] Solidity
-- [ ] Web 3
 - [ ] Ruby on Rails
 
-- [ ] Terraform
 - [ ] Ansible
 - [ ] Kubernetes
+- [ ] Elastic Search
 
-
-- [ ] Wordpress
 - [ ] ThreeJs
+
+## Sided
+- [ ] React Open source (Take open source courses)
+
+## Later
+- [ ] Web 3
+- [ ] Solidity
+
 
