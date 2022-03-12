@@ -14,22 +14,23 @@ Sandbox report where I'll be testing some techno
 
 
 ## In Progress
-- [ ] GrahpQL
+- [ ] GraphQL
 - [ ] Prometeus (Monitoring)
+- [ ] Ruby on Rails
 
 ## In Depth
 - [ ] MongoDB
 - [ ] Terraform
 - [ ] Wordpress
+- [ ] ThreeJs
+
 
 ## Todo
-- [ ] Ruby on Rails
 
 - [ ] Ansible
 - [ ] Kubernetes
 - [ ] Elastic Search
-
-- [ ] ThreeJs
+- [ ] Php
 
 ## Sided
 - [ ] React Open source (Take open source courses)
