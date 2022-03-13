@@ -2,7 +2,7 @@
 Sandbox report where I'll be testing some techno
 
 ## In Progress
-- [ ] Ansible
+
 
 ## Todo
 - [ ] MongoDB
@@ -36,11 +36,11 @@ Sandbox report where I'll be testing some techno
 - [X] Ruby
 - [X] Ruby on Rails (Maybe in depth later)
 - [X] Prometeus (Monitoring)
+- [X] Ansible
 
 
 ## Maybe
 - [ ] React Open source (Take open source courses)
 - [ ] Php
-
 
 
