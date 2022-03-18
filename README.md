@@ -2,14 +2,13 @@
 Sandbox report where I'll be testing some techno
 
 ## In Progress
-
+- [ ] MongoDB
+- [ ] Terraform
 
 ## Todo
-- [ ] MongoDB
 - [ ] GraphQL
-- [ ] Terraform
-- [ ] Wordpress
 - [ ] ThreeJs
+
 - [ ] Web 3
 - [ ] Solidity
 
@@ -24,6 +23,7 @@ Sandbox report where I'll be testing some techno
 - [X] Flutter / Dart
 - [X] Go
 
+- [X] Wordpress
 - [X] Nest Js
 - [X] Elastic Search
 - [X] Kubernetes
