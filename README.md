@@ -2,13 +2,6 @@
 Sandbox report where I'll be testing some techno
 
 ## In Progress
-- [ ] MongoDB
-- [ ] GraphQL
-
-## Todo
-- [ ] Solidity
-
-- [ ] Build a game in threejs
 
 ---
 
@@ -21,7 +14,11 @@ Sandbox report where I'll be testing some techno
 - [X] Flutter / Dart
 - [X] Go
 - [X] ThreeJs
+- [X] MongoDB
+- [X] Solidity
 
+
+- [X] GraphQL
 - [X] Terraform
 - [X] Wordpress
 - [X] Nest Js
